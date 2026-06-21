@@ -1,16 +1,32 @@
 {
-  "name": "discord-bot-worker",
+  "name": "cyberforge",
   "version": "1.0.0",
-  "description": "Discord Bot Worker com Supabase",
-  "main": "src/index.js",
-  "type": "module",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "node --watch src/index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:push": "prisma db push"
   },
   "dependencies": {
-    "discord.js": "^14.18.0",
-    "@supabase/supabase-js": "^2.49.0",
-    "dotenv": "^16.4.7"
+    "next": "15.0.0",
+    "react": "19.0.0-rc",
+    "typescript": "^5.6",
+    "tailwindcss": "^3.4",
+    "@prisma/client": "^5.15",
+    "next-auth": "^4.24",
+    "@next-auth/prisma-adapter": "^1.0.7",
+    "zod": "^3.23",
+    "xterm": "^5.3",
+    "xterm-addon-fit": "^0.8",
+    "@docker/docker-node-api": "^1.0",
+    "node-fetch": "^3.3",
+    "pdf-lib": "^1.17",
+    "date-fns": "^3.6"
+  },
+  "devDependencies": {
+    "prisma": "^5.15",
+    "@types/node": "^20",
+    "autoprefixer": "^10",
+    "postcss": "^8"
   }
 }
