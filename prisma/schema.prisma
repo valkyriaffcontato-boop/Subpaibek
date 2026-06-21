@@ -1,0 +1,39 @@
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  role      Role     @default(USER)
+  targets   Target[]
+  scans     Scan[]
+  createdAt DateTime @default(now())
+}
+
+model Target {
+  id          String   @id @default(cuid())
+  name        String
+  url         String   @unique
+  ip          String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  scans       Scan[]
+  allowed     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Scan {
+  id          String   @id @default(cuid())
+  tool        String
+  targetId    String
+  target      Target   @relation(fields: [targetId], references: [id])
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  status      String
+  result      Json?
+  reportUrl   String?
+  createdAt   DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
+}
